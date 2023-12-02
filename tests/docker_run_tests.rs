@@ -753,6 +753,13 @@ async fn test_lunatic_basic() {
 }
 
 #[tokio::test]
+async fn test_pixi_flask() {
+    let name = simple_build("./examples/pixi-flask").await;
+    let output = run_image(&name, None).await;
+    assert!(output.contains("WARNING: This is a development server."));
+}
+
+#[tokio::test]
 async fn test_python_poetry() {
     let name = simple_build("./examples/python-poetry").await;
     let output = run_image(&name, None).await;

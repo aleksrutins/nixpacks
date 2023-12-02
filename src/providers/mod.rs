@@ -16,6 +16,7 @@ pub mod java;
 pub mod lunatic;
 pub mod node;
 pub mod php;
+pub mod pixi;
 pub mod procfile;
 pub mod python;
 pub mod ruby;

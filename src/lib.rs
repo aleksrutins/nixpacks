@@ -38,9 +38,9 @@ use providers::{
     csharp::CSharpProvider, dart::DartProvider, deno::DenoProvider, elixir::ElixirProvider,
     fsharp::FSharpProvider, gleam::GleamProvider, go::GolangProvider,
     haskell::HaskellStackProvider, java::JavaProvider, lunatic::LunaticProvider,
-    node::NodeProvider, php::PhpProvider, python::PythonProvider, ruby::RubyProvider,
-    rust::RustProvider, scala::ScalaProvider, staticfile::StaticfileProvider, swift::SwiftProvider,
-    zig::ZigProvider, Provider,
+    node::NodeProvider, php::PhpProvider, pixi::PixiProvider, python::PythonProvider,
+    ruby::RubyProvider, rust::RustProvider, scala::ScalaProvider, staticfile::StaticfileProvider,
+    swift::SwiftProvider, zig::ZigProvider, Provider,
 };
 
 mod chain;
@@ -51,6 +51,7 @@ pub mod providers;
 /// Supplies all currently-defined providers to build plan generators and image builders.
 pub fn get_providers() -> &'static [&'static (dyn Provider)] {
     &[
+        &PixiProvider {},
         &CrystalProvider {},
         &CSharpProvider {},
         &DartProvider {},

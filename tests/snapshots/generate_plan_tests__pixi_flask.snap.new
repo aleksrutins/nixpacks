@@ -1,0 +1,32 @@
+---
+source: tests/generate_plan_tests.rs
+assertion_line: 4
+expression: plan
+---
+{
+  "providers": [],
+  "buildImage": "[build_image]",
+  "variables": {
+    "NIXPACKS_METADATA": "pixi"
+  },
+  "phases": {
+    "install": {
+      "name": "install",
+      "dependsOn": [
+        "setup"
+      ],
+      "cmds": [
+        "pixi install"
+      ]
+    },
+    "setup": {
+      "name": "setup",
+      "cmds": [
+        "curl -fsSL https://pixi.sh/install.sh | bash"
+      ]
+    }
+  },
+  "start": {
+    "cmd": "pixi run start"
+  }
+}
